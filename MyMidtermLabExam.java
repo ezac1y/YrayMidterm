@@ -16,7 +16,7 @@ public class MyMidtermLabExam {
 
         @Override
         public String toString() {
-            return "Description: " + description + ", Urgency: " + urgency + ", Status: " + status;
+            return "[" + urgency + "] " + description + " - Status: " + status;
         }
     }
 
@@ -82,8 +82,9 @@ public class MyMidtermLabExam {
         String description = scanner.nextLine();
 
         System.out.print("Enter urgency level (Low, Medium, High): ");
-        String urgency = scanner.nextLine();
+        String urgency = scanner.nextLine().trim(); // Trim to remove leading/trailing spaces
 
+        // Normalize input to lowercase for comparison
         if (!urgency.equalsIgnoreCase("Low") && !urgency.equalsIgnoreCase("Medium") && !urgency.equalsIgnoreCase("High")) {
             System.out.println("Invalid urgency level. Ticket not added.");
             return;
@@ -157,7 +158,6 @@ public class MyMidtermLabExam {
         }
     }
 
-    // Method to generate a report
     public static void generateReport() {
         int pendingCount = 0;
         int resolvedCount = 0;
